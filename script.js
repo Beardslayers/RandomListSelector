@@ -11,11 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     i--;
                 }
             }
-            console.log(list);
             list.sort(() => Math.random() - 0.5);
+            size = document.getElementById("Size").value;
+            console.log(size);
+            console.log(list);
+            list = list.slice(0, size);
             console.log(list);
             list = list.join("\n");
-            console.log(list);
             document.getElementById("Output").innerText = list;
         }
     })
