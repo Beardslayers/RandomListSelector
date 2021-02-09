@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     i--;
                 }
             }
-            list.sort(() => Math.random() - 0.5);
             size = document.getElementById("Size").value;
-            console.log(size);
+            var newList = [];
+            for (var i = 0; i < size; i++) {
+                newList.push(list[Math.floor(Math.random() * list.length)]);
+            }
             console.log(list);
-            list = list.slice(0, size);
-            console.log(list);
-            list = list.join("\n");
-            document.getElementById("Output").innerText = list;
+            newList = newList.join("\n");
+            document.getElementById("Output").innerText = newList;
         }
     })
 });
