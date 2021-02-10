@@ -16,16 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
             for (var i = 0; i < size; i++) {
                 newList.push(list[Math.floor(Math.random() * list.length)]);
             }
-            newList = newList.reduce((r, a) => r.concat(a, "   "), [])
+            newList = newList.reduce((r, a) => r.concat(a, "      "), [])
             newList.splice(newList.length - 1, 1);
             console.log(newList);
             var iterator = 0;
             for (i = 0; i < newList.length; i++) {
-                if (newList[i] == "   ") {
-                    if (iterator === 3) {
+                if (newList[i] == "      ") {
+                    if (iterator === 5) {
                         newList[i] = "\n";
                     }
-                    iterator = (iterator + 1) % 4;
+                    iterator = (iterator + 1) % 6;
                 }
             }
             newList = newList.join("");
