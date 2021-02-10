@@ -16,8 +16,20 @@ document.addEventListener('DOMContentLoaded', () => {
             for (var i = 0; i < size; i++) {
                 newList.push(list[Math.floor(Math.random() * list.length)]);
             }
-            console.log(list);
-            newList = newList.join("\n");
+            newList = newList.reduce((r, a) => r.concat(a, "   "), [])
+            newList.splice(newList.length - 1, 1);
+            console.log(newList);
+            var iterator = 0;
+            for (i = 0; i < newList.length; i++) {
+                if (newList[i] == "   ") {
+                    if (iterator === 3) {
+                        newList[i] = "\n";
+                    }
+                    iterator = (iterator + 1) % 4;
+                }
+            }
+            newList = newList.join("");
+            console.log(newList);
             document.getElementById("Output").innerText = newList;
         }
     })
